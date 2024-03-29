@@ -10,7 +10,7 @@ import Products from './components/products/Products';
 //import Product from './components/products/Products.jsx';
 
 function App() {
-  const products = ['table', 'couch', 'chair1', 'chair2'];
+  const products = ['table', 'couch', 'chair1', 'chair2', 'table2'];
 
   return (
     <div>
