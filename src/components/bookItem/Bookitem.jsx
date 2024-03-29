@@ -1,16 +1,24 @@
-const BookItem = () => {
-    const bookTitle = "100 años de soledad";
-    const bookAuthor = "Gabriel García Marquez";
-    const bookRating = Array(5).fill("*");
-    const bookPages = 410;
+import { Card } from "react-bootstrap";
+
+const BookItem = ({ title, author, pageCount, rating, imageUrl }) => {
+    console.log("Valor de imageUrl:", imageUrl, title);
+
+
     return (
-        <div>
-            <h2>{bookTitle}</h2>
-            <h3>{bookAuthor}</h3>
-            <div>{bookRating.length} estrellas</div>
-            <p>{bookPages} páginas</p>
-        </div>
+        <Card style={{ width: "22rem" }}>
+            <Card.Img
+                height={400}
+                variant="top"
+                src={imageUrl !== "" ? imageUrl : "https://bit.ly/47NylZk"}
+            />
+            <Card.Body>
+                <Card.Title>{title}</Card.Title>
+                <Card.Subtitle>{author}</Card.Subtitle>
+                <div>{rating?.length} estrellas</div>
+                <p>{pageCount} páginas</p>
+            </Card.Body>
+        </Card>
     );
 };
-export default BookItem;
 
+export default BookItem;
