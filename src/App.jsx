@@ -299,9 +299,12 @@ let watchList = [
 const returnMovieTitle = (watchlist) => {
 
     return watchList.map ((movie) => {
-      if (movie.Director === 'Cristopher Nolan' || parseFloat(movie.imdbRating) > 8.0)
+      if (movie.Director === 'Christopher Nolan' || parseFloat(movie.imdbRating) > 8.0)
       {
         return movie.Title;
+      }
+      else{
+        return null;
       }
     })
     
