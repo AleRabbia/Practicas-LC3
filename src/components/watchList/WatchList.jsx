@@ -1,19 +1,15 @@
 import PropTypes from 'prop-types';
 
-const Product = ({ name, a,b }) => {
+const Product = ({ name }) => {
   return (
     <div>
-      <h3>{name}</h3>
-      <p>Director: {a}</p>
-      <p>Rating: {b}</p>
+      <li>{name}</li>
     </div>
   );
 }
 
 Product.propTypes = {
   name: PropTypes.string.isRequired, 
-  a: PropTypes.string.isRequired,
-  b: PropTypes.isRequired
 }
 
 export default Product;

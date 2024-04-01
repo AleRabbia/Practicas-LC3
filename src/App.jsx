@@ -128,12 +128,14 @@ function App() {
         },
     ];
     const watchListFilter = watchList.filter ((movie) => {
-        return movie.Director === 'Christopher Nolan' || parseFloat(movie.imdbRating) > 8.5
-    })
+        return movie.Director === 'Christopher Nolan' || parseFloat(movie.imdbRating) > 8.0
+    });
+    const movieTitles = watchListFilter.map(movie => movie.Title);
     return (
         <div>
-            {watchListFilter.map((list, index) => (
-                <WatchList key={index} name={list.Title} a={list.Director} b={list.imdbRating}/>
+            <h1>Nombre de la pelicula:</h1>
+            {movieTitles.map((list, index) => (
+                <WatchList key={index} name={list}/>
             ))}
         </div>
     );
