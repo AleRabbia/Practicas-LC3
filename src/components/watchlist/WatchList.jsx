@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
 
-const WatchList = ({ title }) => {
-    return (
-      <div>
-        <h3>{title}</h3>
-      </div>
-    );
-  }
-  
-  WatchList.propTypes = {
-    title: PropTypes.string.isRequired
-  }
-  
-  export default WatchList;
+const Product = ({ name }) => {
+  return (
+    <div>
+      <li>{name}</li>
+    </div>
+  );
+}
+
+Product.propTypes = {
+  name: PropTypes.string.isRequired, 
+}
+
+export default Product;
