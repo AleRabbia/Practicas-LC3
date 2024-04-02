@@ -1,16 +1,16 @@
 
 import './App.css'
-import Persons from './components/persons/Persons';
+import Family from './components/family/Family';
 
 function App() {
-    const names = ['Parker','Simmons','Lewis','Poe'];
-    const nameFilters = names.filter((nameF) => {return nameF.charAt(0) === 'P'})
+    const persons = [{ name: 'Juan', age: 26 }, { name: 'Gabriel', age: 27 }, { name: 'Valentina', age: 22 }, { name: 'Paula', age: 25 }, { name: 'Andrés', age: 20 }];
+
+    const personsOrder = persons.sort((a, b) => b.age - a.age)
+
     return (
-        <div>            
+        <div>
             <h1>Lista de nombres:</h1>
-            {nameFilters.map((name, index) => (
-                <Persons key={index} name={name} />
-            ))}
+            <Family persons={personsOrder} />
         </div>
     );
 }
