@@ -69,10 +69,13 @@ function App() {
         },
     ];
 
+    const beerFilter = beers.filter((beer) => {
+        return beer.available === true
+    }) 
     return (
         <div>
             <h1>Lista de cervezas:</h1>
-            {beers.map((beer) => (
+            {beerFilter.map((beer) => (
                 <Beers key={beer.id} beerName={beer.beerName} beerStyle={beer.beerStyle} price={beer.price} />
             ))}
         </div>
