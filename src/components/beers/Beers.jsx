@@ -4,9 +4,9 @@ const Beers = ({ beerName, beerStyle, price, available }) => {
     
     return (
         <div>
-            <h1>{beerName}</h1>
-            <h2>{beerStyle}</h2>
-            <p>{"$" + price * 1000}</p>
+            <h4>Nombre: {beerName}</h4>
+            <h5>Estilo: {beerStyle}</h5>
+            <p>Valor: {"$" + price * 1000}</p>
         </div>
     )
 }
