@@ -70,12 +70,13 @@ function App() {
     ];
 
     const beerFilter = beers.filter((beer) => {
-        return beer.available === true
+        return beer.beerStyle === "IPA" || beer.beerStyle === "Red"
     }) 
     return (
         <div>
+            <p>Cantidad de cervezas estilo IPA y Red: {beerFilter.length}</p>
             <h1>Lista de cervezas:</h1>
-            {beerFilter.map((beer) => (
+            {beers.map((beer) => (
                 <Beers key={beer.id} beerName={beer.beerName} beerStyle={beer.beerStyle} price={beer.price} />
             ))}
         </div>
