@@ -9,7 +9,7 @@ const Product = ({ name }) => {
 }
 
 Product.propTypes = {
-  name: PropTypes.string.isRequired, 
+  name: PropTypes.string.isRequired
 }
 
 export default Product;
