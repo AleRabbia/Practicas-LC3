@@ -1,5 +1,5 @@
 import './App.css'
-import WatchList from './components/watchList/WatchList';
+import WatchList from './components/watchlist/WatchList.jsx'
 
 function App() {
     const watchList = [
@@ -133,8 +133,8 @@ function App() {
     return (
         <div>
             <h1>Nombre de la pelicula:</h1>
-            {movieTitles.map((list, index) => (
-                <WatchList key={index} name={list}/>
+            {movieTitles.map((movie, index) => (
+                <WatchList key={index} name={movie}/>
             ))}
         </div>
     );

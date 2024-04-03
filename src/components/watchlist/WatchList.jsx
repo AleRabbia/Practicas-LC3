@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
 
-const Product = ({ name }) => {
+const WatchList = ({ name}) => {
   return (
     <div>
-      <li>{name}</li>
+      <h3>{name}</h3>
     </div>
   );
 }
 
-Product.propTypes = {
-  name: PropTypes.string.isRequired, 
+WatchList.propTypes = {
+  name: PropTypes.string.isRequired
 }
 
-export default Product;
+export default WatchList;
