@@ -1,6 +1,6 @@
 
 import './App.css'
-import WatchList from './components/watchList/WatchList';
+import MovieFilter from './components/movieFilter/MovieFilter'
 
 function App() {
     const watchList = [
@@ -127,16 +127,11 @@ function App() {
             Response: 'True',
         },
     ];
-    const watchListFilter = watchList.filter ((movie) => {
-        return movie.Director === 'Christopher Nolan' || parseFloat(movie.imdbRating) > 8.0
-    });
-    const movieTitles = watchListFilter.map(movie => movie.Title);
+
     return (
         <div>
-            <h1>Nombre de la pelicula:</h1>
-            {movieTitles.map((list, index) => (
-                <WatchList key={index} name={list}/>
-            ))}
+            <MovieFilter movies={watchList} />
+           
         </div>
     );
 }
