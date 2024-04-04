@@ -10,7 +10,11 @@ const MovieFilter = ({ movies }) => {
     return (
         <div>
             <h1>Nombre de peliculas:</h1>
-            <WatchList movies={movieTitles} />
+            {movieTitles.map((title) => (
+                <div key={title}>
+                    <WatchList name={title} />
+                </div>
+            ))}
         </div>
     );
 }
