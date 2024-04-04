@@ -3,16 +3,20 @@ import WatchList from '../watchList/WatchList';
 
 const MovieFilter = ({ movies }) => {
     const watchListFilter = movies.filter((movie) => {
-        return movie.Director === 'Christopher Nolan' || parseFloat(movie.imdbRating) > 8.0
+        return movie.Director === 'Christopher Nolan' && parseFloat(movie.imdbRating) > 8.5
     });
-    const movieTitles = watchListFilter.map(movie => movie.Title);
 
     return (
         <div>
-            <h1>Nombre de peliculas:</h1>
-            {movieTitles.map((title) => (
-                <div key={title}>
-                    <WatchList name={title} />
+            <h1>Nombre de películas:</h1>
+            {watchListFilter.map((movie, index) => (
+                <div key={index}>
+                    <WatchList 
+                      name={movie.Title}
+                      director={movie.Director}
+                      rating={parseFloat(movie.imdbRating)}
+                      poster={movie.Poster}
+                    />
                 </div>
             ))}
         </div>
