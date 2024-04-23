@@ -1,22 +1,47 @@
 import PropTypes from 'prop-types';
+import BeerItem from '../beerStyle/BeerItem';
+import UpdateBeer from '../updateBeer/UpdateBeer';
+import './Beers.css';
+import { useState } from "react";
 
-const Beers = ({ beerName, beerStyle, price, available }) => {
-    
+const Beers = ({ beers, dolarValue, onUpdate }) => {
+    const [updateBeerId, setUpdateBeerId] = useState(null);
+
+    const handleUpdateClick = (id) => {
+        setUpdateBeerId(id);
+    };
+
     return (
-        <div>
-            <h4>Nombre: {beerName}</h4>
-            <h5>Estilo: {beerStyle}</h5>
-            <p>Valor: {"$" + price * 1000}</p>
+        <div className="beers-container">
+            {beers.map((beer) => (
+                <div key={beer.id}>
+                    <BeerItem
+                        id={beer.id}
+                        name={beer.beerName}
+                        price={beer.price * dolarValue}
+                        style={beer.beerStyle}
+                        available={beer.available}
+                        imageUrl={beer.imageUrl}
+                        onUpdate={() => handleUpdateClick(beer.id)}
+                    />
+                    {updateBeerId === beer.id && (
+                        <UpdateBeer
+                            key={`update-${beer.id}`}
+                            beerId={beer.id}
+                            beerData={beer}
+                            onUpdate={onUpdate}
+                        />
+                    )}
+                </div>
+            ))}
         </div>
-    )
-}
-
+    );
+};
 
 Beers.propTypes = {
-    beerName: PropTypes.string,
-    beerStyle: PropTypes.string,
-    price: PropTypes.number,
-    available: PropTypes.bool,
-}
+    beers: PropTypes.array.isRequired,
+    dolarValue: PropTypes.number.isRequired,
+    onUpdate: PropTypes.func.isRequired,
+};
 
 export default Beers;
