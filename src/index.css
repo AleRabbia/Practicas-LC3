@@ -10,5 +10,8 @@ html {
 
 body {
    margin: 0;
-   background-color: #ec9a2e;
+   background-color: #2e80ec;
 }
+.white-text {
+   color: white;
+ }
