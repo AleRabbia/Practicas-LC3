@@ -53,7 +53,7 @@ const BEERS = [
         available: true,
         imageUrl: "https://cervezadimenna.com.ar/wp-content/uploads/2024/01/West-Coast-Ipa-510x510.png",
     },
-    {
+    /*{
         id: 7,
         beerName: "German",
         beerStyle: "Pilsen",
@@ -76,7 +76,7 @@ const BEERS = [
         price: 5,
         available: false,
         imageUrl: "https://cervezadimenna.com.ar/wp-content/uploads/2021/05/MrApa-510x510.png",
-    },
+    },*/
 ];
 function App() {
     const [beers, setBeers] = useState(BEERS);
@@ -105,6 +105,7 @@ function App() {
         });
     };
 
+    
     return (
         <div>
             <h1>Lista de cervezas:</h1>

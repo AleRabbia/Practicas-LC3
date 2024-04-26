@@ -8,6 +8,7 @@ const UpdateBeer = ({ beerId, beerData, onUpdate }) => {
     const [beerPrice, setBeerPrice] = useState("");
     const [beerAvailable, setBeerAvailable] = useState("");
     const [beerImageUrl, setBeerImageUrl] = useState("");
+    const [showForm, setShowForm] = useState(false);
 
     useEffect(() => {
         // Cargar los datos de la cerveza seleccionada cuando cambie beerData o beerId
@@ -17,6 +18,7 @@ const UpdateBeer = ({ beerId, beerData, onUpdate }) => {
             setBeerPrice(beerData.price);
             setBeerAvailable(beerData.available);
             setBeerImageUrl(beerData.imageUrl);
+            setShowForm(true);
         }
     }, [beerData, beerId]);
 
@@ -54,7 +56,13 @@ const UpdateBeer = ({ beerId, beerData, onUpdate }) => {
         onUpdate(updatedBeerData);
     };
 
+    const toggleForm = () => {
+        setShowForm(!showForm);
+    };
     return (
+        <>
+        <Button onClick={toggleForm}>{showForm ? "Esconder" : "Actualizar"}</Button>
+            {showForm && (
         <Card className="m-4 w-50" bg="success">
             <Card.Body>
                 <Form className="text-white" onSubmit={submitBeerHandler}>
@@ -128,7 +136,7 @@ const UpdateBeer = ({ beerId, beerData, onUpdate }) => {
                     </Row>
                 </Form>
             </Card.Body>
-        </Card>
+        </Card>)}</>
     );
 };
 
